@@ -1,0 +1,30 @@
+public class Sqrt_Without_Inbuilt_Function 
+{
+    public static void main(String args[])
+    {
+       sqrt(16,0,16);
+    }
+    public static void sqrt(int num, float low,float high)
+    {
+        float mid = (low+high)/2;
+        
+        if(Math.abs((mid*mid) - num) == 0 || Math.abs((mid*mid) - num) < 0.1)
+        {
+                    System.out.println(mid);
+                    return;
+        }
+        else
+        {
+            if(mid*mid > num)
+            {
+                high = mid;
+                sqrt(num, low, high);
+            }
+            else
+            {
+                low = mid;
+                sqrt(num, low, high);
+            }
+        }
+    }
+}
