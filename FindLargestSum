@@ -1,0 +1,29 @@
+public class FindLargestSum {
+
+    public static void main(String args[])
+    {
+        int arr[] ={-5,-6,24,57,-54,-478,56,89,47,23};
+        System.out.println(findLargestSum(arr));
+    }
+    
+    public static String findLargestSum(int arr[]) {
+        int max = 0;
+        int locStart = 0;
+        int locS=0;
+        int locEnd = 0;
+        int curr = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            curr += arr[i];
+            if (curr > 0 && curr > max) {
+                max = curr;
+                locS = locStart+1;
+                locEnd = i;
+            } else if (curr < 0) {
+                curr = 0;
+                locStart = i;
+            }
+        }
+        return ""+max+" "+locS+" "+locEnd;
+    }
+}
