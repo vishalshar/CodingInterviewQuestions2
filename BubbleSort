@@ -1,0 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package Sorting;
+
+/**
+ *
+ * @author Vishal
+ */
+public class BubbleSort 
+{
+    public static void main(String args[])
+    {
+        int arr[] = {3,6,9,1,2,7,5,8};
+        
+        arr = bubbleSort(arr);
+        
+        for(int i=0;i<arr.length;i++)
+            System.out.println(arr[i]);
+    }
+    
+    /**
+     * 
+     * Starting from the beginning of the list, 
+     * compare every adjacent pair, swap their position if they are not in 
+     * the right order (the latter one is smaller than the former one). 
+     * 
+     * After each iteration, one less element (the last one) is needed to be 
+     * compared until there are no more elements left to be compared.
+     * 
+     */
+
+    private static int[] bubbleSort(int[] arr) 
+    {
+        for(int i=arr.length-1;i>=0;i--)
+        {
+            for(int j=0;j<i;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+    
+}
