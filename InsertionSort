@@ -1,0 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package Sorting;
+
+/**
+ *
+ * @author Vishal
+ */
+public class InsertionSort 
+{
+    public static void main(String args[])
+    {
+        int arr[] = {3,6,9,1,2,7,5,8};
+        
+        arr = insertionSort(arr);
+        
+        for(int i=0;i<arr.length;i++)
+            System.out.println(arr[i]);
+    }
+    
+    /**
+     * 
+     * Insertion sort iterates, consuming one input element each repetition, 
+     * and growing a sorted output list. Each iteration, insertion sort 
+     * removes one element from the input data, finds the location it belongs 
+     * within the sorted list, and inserts it there. It repeats until 
+     * no input elements remain.
+     * 
+     */
+
+    private static int[] insertionSort(int[] arr) 
+    {
+        for(int i=1;i<arr.length;i++)
+        {
+            for(int j=i;j>0;j--)
+            {
+                if(arr[j]<arr[j-1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+}
