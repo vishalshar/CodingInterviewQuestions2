@@ -1,0 +1,52 @@
+/**
+* Provided a number dictionary and a number, x , which is formed 
+from the number dictionary. Find the rank of the number x? 
+Rank is defined as the position of the number x when all the 
+number formed from the dictionary are sorted. 
+*
+**/
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+
+public class FindRank {
+
+    public static List<String> tokens = new ArrayList<String>();
+
+    public static void main(String args[]) {
+
+        String list = "abcd";
+        String input = "acbd";
+        permutation("", list);
+
+        Collections.sort(tokens);
+
+        for (String x : tokens) {
+            System.out.println(x);
+        }
+
+        int count = 1;
+        for (String temp : tokens) {
+            if (input.equals(temp)) {
+                break;
+            } else {
+                count++;
+            }
+        }
+        if (count < tokens.size()) {
+            System.out.println(count);
+        }
+    }
+
+    public static void permutation(String pre, String str) {
+        if (str.length() == 0) {
+            tokens.add(pre);
+        }
+        int n = str.length();
+        for (int i = 0; i < n; i++) {
+            permutation(pre + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
+        }
+    }
+}
