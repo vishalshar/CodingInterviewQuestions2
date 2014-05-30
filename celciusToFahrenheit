@@ -1,0 +1,4 @@
+    public static double celciusToFahrenheit(double degree)
+    {
+        return degree/5*9+32;
+    }
